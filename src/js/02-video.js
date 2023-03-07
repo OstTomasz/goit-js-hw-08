@@ -1,14 +1,13 @@
-// import player from '@vimeo/player';
+import Player from '@vimeo/player';
 
-// const iframe = document.querySelector('iframe');
-// const player = new Vimeo.Player(iframe);
+const player = new Player('vimeo-player', {});
 
-// player.on('timeupdate', currentTime => {
-//   localStorage.setItem('VIDEOPLAYER-CURRENT-TIME', JSON.stringify(currentTime));
-// });
+player.on('timeupdate', function (currentTime) {
+  localStorage.setItem(
+    'videoplayer-current-time',
+    JSON.stringify(currentTime.seconds)
+  );
+});
 
-// const time = [localStorage.getItem('VIDEOPLAYER-CURRENT-TIME')];
-// console.log('time:', time);
-
-// localStorage.setItem('alalal', 'aaa');
-console.log('jestem tu');
+const time = localStorage.getItem('videoplayer-current-time');
+console.log(time[0]);
