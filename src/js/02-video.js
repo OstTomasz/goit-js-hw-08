@@ -9,5 +9,14 @@ player.on('timeupdate', function (currentTime) {
   );
 });
 
-const time = localStorage.getItem('videoplayer-current-time');
-console.log(time[0]);
+player
+  .setCurrentTime(localStorage.getItem('videoplayer-current-time'))
+  .then(function (seconds) {})
+  .catch(function (error) {
+    switch (error.name) {
+      case 'RangeError':
+        break;
+      default:
+        break;
+    }
+  });
