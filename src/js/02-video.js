@@ -9,3 +9,5 @@ player.on('timeupdate', currentTime => {
 
 const time = [localStorage.getItem('VIDEOPLAYER-CURRENT-TIME')];
 console.log(time);
+
+localStorage.setItem('alalal', 'aaa');
