@@ -12,8 +12,8 @@ form.addEventListener(
     localStorage.setItem(
       'feedback-form-state',
       JSON.stringify({
-        svdEmail: email.value,
-        svdMessage: message.value,
+        Email: email.value,
+        Message: message.value,
       })
     );
   }, 500)
@@ -22,11 +22,17 @@ let savedData = JSON.parse(localStorage.getItem('feedback-form-state'));
 console.log(savedData);
 
 if (savedData) {
-  (email.value = savedData.svdEmail), (message.value = savedData.svdMessage);
+  (email.value = savedData.Email), (message.value = savedData.Message);
 } else {
   (email.value = ''), (message.value = '');
 }
 
-form.addEventListener('submit', () => {
+form.addEventListener('submit', e => {
+  e.preventDefault();
   localStorage.clear();
+  console.log({
+    Email: email.value,
+    Message: message.value,
+  });
+  form.reset();
 });
