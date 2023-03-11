@@ -12,8 +12,8 @@ form.addEventListener(
     localStorage.setItem(
       'feedback-form-state',
       JSON.stringify({
-        Email: email.value,
-        Message: message.value,
+        email: email.value,
+        message: message.value,
       })
     );
   }, 500)
@@ -31,8 +31,8 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   localStorage.clear();
   console.log({
-    Email: email.value,
-    Message: message.value,
+    email: email.value,
+    message: message.value,
   });
   form.reset();
 });
