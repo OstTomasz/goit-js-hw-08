@@ -19,10 +19,9 @@ form.addEventListener(
   }, 500)
 );
 let savedData = JSON.parse(localStorage.getItem('feedback-form-state'));
-console.log(savedData);
 
 if (savedData) {
-  (email.value = savedData.Email), (message.value = savedData.Message);
+  (email.value = savedData.email), (message.value = savedData.message);
 } else {
   (email.value = ''), (message.value = '');
 }
