@@ -35,8 +35,20 @@ const renderElements = (images, rootList) => {
 //5. Renderujemy elementy do html
 renderElements(images, gallery);
 
+//6. Nadajemy elementom listener który wywłuje efekt lightbox
 gallery.addEventListener("click", (event) => {
   event.preventDefault();
   if (!event.target.classList.contains("gallery-image")) return;
-  console.log(event.target.dataset.source);
+  const instance = basicLightbox.create(
+    `<img src=${event.target.dataset.source}>`
+  );
+  instance.show();
+
+  //7. Jeśli lightbox jest włączony oraz wciśniemy escape, lightbox się wyłącza
+  const visible = basicLightbox.visible();
+  document.addEventListener("keydown", (e) => {
+    if (visible && e.key === "Escape") {
+      instance.close();
+    }
+  });
 });
