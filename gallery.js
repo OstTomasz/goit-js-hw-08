@@ -1,5 +1,5 @@
 //1. wybieramy galerię z DOM
-const gallery = document.querySelector(".gallery");
+const gallery = document.querySelector("ul.gallery");
 
 //2. Budujemy tempatkę do tworzenia elementów DOM z atrybutami
 const element = (tag, props) =>
@@ -38,5 +38,5 @@ renderElements(images, gallery);
 gallery.addEventListener("click", (event) => {
   event.preventDefault();
   if (!event.target.classList.contains("gallery-image")) return;
-  console.log(event.target);
+  console.log(event.target.dataset.source);
 });
