@@ -13,6 +13,8 @@ const createGalEl = ({ preview, original, description }) => {
     className: "gallery-image",
     src: preview,
     alt: description,
+    width: 360,
+    height: 200,
   });
   img.dataset.source = original;
 
