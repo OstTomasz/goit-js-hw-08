@@ -12,9 +12,9 @@ const createGalEl = ({ preview, original, description }) => {
   const img = element("img", {
     className: "gallery-image",
     src: preview,
-    dataSource: original,
     alt: description,
   });
+  img.dataset.source = original;
 
   link.append(img);
   galEl.append(link);
@@ -32,3 +32,9 @@ const renderElements = (images, rootList) => {
 
 //5. Renderujemy elementy do html
 renderElements(images, gallery);
+
+gallery.addEventListener("click", (event) => {
+  event.preventDefault();
+  if (!event.target.classList.contains("gallery-image")) return;
+  console.log(event.target);
+});
